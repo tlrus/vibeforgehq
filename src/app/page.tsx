@@ -1,2 +1,5 @@
-import { redirect } from "next/navigation";
-export default function Home(){redirect("/admin")}
+import { ContactRequest } from "@/components/contact-request";
+
+export default function Home() {
+  return <ContactRequest />;
+}
