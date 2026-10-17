@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import styles from "./contact-request.module.css";
 
 export function ContactRequest() {
@@ -21,7 +23,7 @@ export function ContactRequest() {
     window.location.assign(`https://wa.me/77081102995?text=${encodeURIComponent(text)}`);
   }
   return <div className={styles.page}>
-    <header className={styles.header}><a href="/" className={styles.brand}>VibeForge<span>Business Pulse</span></a><a href="tel:+77081102995">+7 708 110 29 95</a></header>
+    <header className={styles.header}><Link href="/" className={styles.brand}>VibeForge<span>Business Pulse</span></Link><a href="tel:+77081102995">+7 708 110 29 95</a></header>
     <main className={styles.main}>
       <section className={styles.intro}><p className={styles.eyebrow}>На связи — Руслан</p><h1>Договорённости<br />не должны теряться.</h1><p>Обсудим, как связать обращения, работу команды и следующие шаги с клиентами в Business Pulse.</p><a className={styles.direct} href="https://wa.me/77081102995">Написать в WhatsApp ↗</a></section>
       <section className={styles.contact} aria-labelledby="request-title">
@@ -35,9 +37,9 @@ export function ContactRequest() {
             <p className={styles.note}>Откроется WhatsApp с вашим текстом. Для отправки нажмите «Отправить» в чате. До этого форма не отправляет и не сохраняет ваши данные.</p>
           </form>
         </div>
-        <aside className={styles.qr}><a href="https://wa.me/qr/BT35IQF7XT66E1" aria-label="Открыть контакт Руслана в WhatsApp"><img src="/whatsapp-ruslan.png" alt="QR-код WhatsApp Руслана" width={1320} height={2868} /></a><h3>Удобнее с телефона?</h3><p>Отсканируйте QR-код камерой WhatsApp или нажмите на него.</p><a href="tel:+77081102995">+7 708 110 29 95</a></aside>
+        <aside className={styles.qr}><a href="https://wa.me/qr/BT35IQF7XT66E1" aria-label="Открыть контакт Руслана в WhatsApp"><Image src="/whatsapp-ruslan.png" alt="QR-код WhatsApp Руслана" width={1320} height={2868} unoptimized /></a><h3>Удобнее с телефона?</h3><p>Отсканируйте QR-код камерой WhatsApp или нажмите на него.</p><a href="tel:+77081102995">+7 708 110 29 95</a></aside>
       </section>
     </main>
-    <footer className={styles.footer}><span>VibeForge · Business Pulse</span><a href="/privacy">Конфиденциальность</a><a href="/business-pulse">Вход в CRM</a></footer>
+    <footer className={styles.footer}><span>VibeForge · Business Pulse</span><Link href="/privacy">Конфиденциальность</Link><Link href="/business-pulse">Вход в CRM</Link></footer>
   </div>;
 }
