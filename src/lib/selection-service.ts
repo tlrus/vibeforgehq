@@ -1,0 +1,23 @@
+import { products as demoProducts, type CatalogProduct } from "./mock-data";
+import { getSupabaseServerClient } from "./supabase/server";
+import { calculatePrice } from "./pricing-engine";
+
+export type PublicSelectionData={customerName:string;photoUrl:string|null;photoMissing:boolean;windowType:string|null;width:number|null;height:number|null;quantity:number;extras:string[];products:CatalogProduct[];expiresAt:string;demo:boolean};
+export type SelectionError="invalid"|"expired"|"disabled";
+export async function getPublicSelection(token:string):Promise<{data?:PublicSelectionData;error?:SelectionError}>{
+  if(token.length<24)return {error:"invalid"};const client=getSupabaseServerClient();
+  if(!client){if(!token.startsWith("demo-"))return {error:"invalid"};return {data:demoSelection(token)}}
+  const {data:link}=await client.from("selection_links").select("lead_id,expires_at,active").eq("token",token).maybeSingle();if(!link)return {error:"invalid"};if(!link.active)return {error:"disabled"};if(new Date(link.expires_at).getTime()<=Date.now())return {error:"expired"};
+  const [{data:lead},{data:config},{data:photo},{data:catalog}]=await Promise.all([
+    client.from("leads").select("customer_name,whatsapp_name").eq("id",link.lead_id).single(),
+    client.from("window_configurations").select("window_type,width_mm,height_mm,quantity,mosquito_net,window_sill,slopes,dismantling,installation,delivery").eq("lead_id",link.lead_id).maybeSingle(),
+    client.from("customer_photos").select("original_url").eq("lead_id",link.lead_id).order("created_at",{ascending:false}).limit(1).maybeSingle(),
+    client.from("products").select("*").eq("active",true).order("sort_order").limit(20),
+  ]);if(!lead)return {error:"invalid"};const mapped=(catalog||[]).map(mapProduct);const filtered=filterProducts(mapped,config?.window_type).slice(0,5);
+  return {data:{customerName:lead.customer_name||lead.whatsapp_name||"Клиент",photoUrl:photo?.original_url||null,photoMissing:!photo?.original_url,windowType:config?.window_type||null,width:config?.width_mm??null,height:config?.height_mm??null,quantity:config?.quantity||1,extras:configToExtras(config),products:filtered,expiresAt:link.expires_at,demo:false}};
+}
+function demoSelection(token:string):PublicSelectionData{const wanted=token.includes("trio")?"Трёхстворчатое":token.includes("solo")?"Одностворчатое":"Двухстворчатое";return {customerName:"Нурлан",photoUrl:"/demo-room.svg",photoMissing:false,windowType:wanted,width:1400,height:1500,quantity:2,extras:["Москитная сетка","Демонтаж","Монтаж"],products:filterProducts(demoProducts,wanted).slice(0,5),expiresAt:new Date(Date.now()+86400000).toISOString(),demo:true}}
+function filterProducts(items:CatalogProduct[],windowType?:string|null){if(!windowType||/не знаю/i.test(windowType))return items;const count=/одно/i.test(windowType)?1:/двух/i.test(windowType)?2:/тр[её]х/i.test(windowType)?3:null;if(/балкон/i.test(windowType))return items.filter(item=>item.windowType==="Балконный блок");return count?items.filter(item=>item.sashCount===count):items}
+function configToExtras(config:Record<string,unknown>|null){if(!config)return [];return [["mosquito_net","Москитная сетка"],["window_sill","Подоконник"],["slopes","Откосы"],["dismantling","Демонтаж"],["installation","Монтаж"],["delivery","Доставка"]].filter(([key])=>config[key]===true).map(([,label])=>label)}
+function mapProduct(p:Record<string,unknown>,index:number):CatalogProduct{return {id:String(p.id),name:String(p.name),type:String(p.window_type||"Окно"),windowType:String(p.window_type||"Окно"),profile:String(p.profile_material||"ПВХ"),sashCount:Number(p.sash_count||1),openingSashes:1,openingType:String(p.opening_type||"Не указано"),pricePerM2:Number(p.base_price_per_m2||0),price:`${Number(p.base_price_per_m2||0).toLocaleString("ru-RU")} ₸/м²`,description:String(p.description||""),color:["#c7d8df","#a9c4bc","#b6bdc8"][index%3],colors:Array.isArray(p.available_colors)?p.available_colors.map(String):[],glassTypes:Array.isArray(p.available_glass_types)?p.available_glass_types.map(String):[],active:Boolean(p.active),heat:"Высокая",sound:"42 дБ",image:String(p.transparent_image_url||p.preview_image_url||"/windows/standard-solo.svg")}}
+export function preliminaryPrice(product:CatalogProduct,width:number|null,height:number|null,quantity:number,extras:string[]){const result=calculatePrice({widthMm:width,heightMm:height,quantity,profileMaterial:product.profile,glassType:"стандартный",openingSashes:0,extras,productPriceRange:{min:product.pricePerM2,max:Math.round(product.pricePerM2*1.3)}});return {total:result.total,approximate:!result.exactDimensions}}

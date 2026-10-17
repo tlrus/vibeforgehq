@@ -1,0 +1,13 @@
+-- Ready-to-demo lead for Nurlan. Run after schema.sql and seed.sql.
+insert into public.leads (id,whatsapp_phone,whatsapp_name,customer_name,status,current_state,ai_enabled,manager_takeover,assigned_manager,city,address)
+values ('11111111-1111-4111-8111-111111111111','+77001234567','Нурлан','Нурлан','WAITING_FOR_MANAGER','MANAGER_TAKEOVER',false,true,'Алия','Алматы','Адрес уточняется')
+on conflict (id) do update set customer_name=excluded.customer_name,status=excluded.status,current_state=excluded.current_state,ai_enabled=excluded.ai_enabled,manager_takeover=excluded.manager_takeover,city=excluded.city;
+
+insert into public.conversations (id,lead_id) values ('22222222-2222-4222-8222-222222222222','11111111-1111-4111-8111-111111111111') on conflict (id) do nothing;
+insert into public.window_configurations (lead_id,object_type,window_type,quantity,width_mm,height_mm,profile_material,sash_count,opening_sashes,opening_type,opening_direction,profile_color,glass_type,mosquito_net,dismantling,installation,delivery)
+values ('11111111-1111-4111-8111-111111111111','Квартира','Двухстворчатое',2,1400,1500,'ПВХ усиленный',2,1,'Поворотно-откидное','Внутрь','Белый','Энергосберегающий',true,true,true,false)
+on conflict (lead_id) do update set object_type=excluded.object_type,window_type=excluded.window_type,quantity=excluded.quantity,width_mm=excluded.width_mm,height_mm=excluded.height_mm,profile_material=excluded.profile_material,sash_count=excluded.sash_count,opening_sashes=excluded.opening_sashes,opening_type=excluded.opening_type,profile_color=excluded.profile_color,glass_type=excluded.glass_type,mosquito_net=excluded.mosquito_net,dismantling=excluded.dismantling,installation=excluded.installation;
+insert into public.customer_photos (id,lead_id,original_url) values ('33333333-3333-4333-8333-333333333333','11111111-1111-4111-8111-111111111111','/demo-room.svg') on conflict (id) do nothing;
+insert into public.selection_links (id,lead_id,token,expires_at,active) values ('44444444-4444-4444-8444-444444444444','11111111-1111-4111-8111-111111111111','demo-nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn',now()+interval '24 hours',true) on conflict (token) do update set expires_at=excluded.expires_at,active=true;
+insert into public.product_selections (lead_id,product_id,selected_color,selected_glass_type,selected_options,confirmed)
+select '11111111-1111-4111-8111-111111111111',id,'Белый','Энергосберегающий','["Москитная сетка","Демонтаж","Монтаж"]'::jsonb,true from public.products where slug='comfort-duo-plus' and not exists (select 1 from public.product_selections where lead_id='11111111-1111-4111-8111-111111111111');

@@ -1,0 +1,268 @@
+.agentBox {
+  margin: 1.2rem 0;
+  padding: 1.1rem;
+  border-radius: 1.1rem;
+  background: linear-gradient(170deg, rgba(35, 42, 60, 0.72), rgba(24, 27, 36, 0.88));
+  border: 1px solid rgba(110, 150, 255, 0.22);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.agentHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.agentTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #e6edff;
+}
+
+.agentTitle svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: #7da5ff;
+}
+
+.agentBadge {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.5rem;
+  background: rgba(110, 150, 255, 0.16);
+  color: #a8c4ff;
+  border: 1px solid rgba(110, 150, 255, 0.25);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.agentActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 650;
+  background: rgba(255, 255, 255, 0.06);
+  color: #dce3f5;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+
+.actionBtn:hover:not(:disabled) {
+  background: rgba(110, 150, 255, 0.18);
+  border-color: rgba(110, 150, 255, 0.35);
+  color: #fff;
+}
+
+.actionBtnActive {
+  background: #3f6cd8 !important;
+  border-color: #5583f2 !important;
+  color: #fff !important;
+}
+
+.actionBtn svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.loadingState {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 1rem;
+  margin-top: 0.75rem;
+  border-radius: 0.85rem;
+  background: rgba(20, 24, 35, 0.6);
+  color: #9ab4f0;
+  font-size: 0.84rem;
+  border: 1px dashed rgba(110, 150, 255, 0.25);
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.resultBox {
+  margin-top: 0.9rem;
+  padding: 1rem;
+  border-radius: 0.9rem;
+  background: rgba(18, 22, 32, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.sectionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sectionLabel {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8b9bb5;
+  font-weight: 700;
+}
+
+.summaryText {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #f0f3fa;
+}
+
+.goalHighlight {
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.65rem;
+  background: rgba(65, 175, 120, 0.12);
+  border: 1px solid rgba(65, 175, 120, 0.3);
+  color: #c9f5db;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.scriptBox {
+  padding: 0.8rem 0.9rem;
+  border-radius: 0.75rem;
+  background: rgba(30, 36, 52, 0.9);
+  border: 1px solid rgba(110, 150, 255, 0.2);
+  color: #e2e9fc;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.scriptToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.applyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+  background: #3a75e2;
+  color: white;
+  border: 0;
+  cursor: pointer;
+  transition: background 140ms ease;
+}
+
+.applyBtn:hover {
+  background: #4d86f0;
+}
+
+.applyBtn svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.miniBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.38rem 0.65rem;
+  border-radius: 0.55rem;
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd3e8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.miniBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.miniBtn svg {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.listItems {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.84rem;
+  color: #cbd4e6;
+}
+
+.factsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.65rem;
+}
+
+.factCard {
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.factCard small {
+  display: block;
+  font-size: 0.7rem;
+  color: #8894aa;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+}
+
+.factCard strong {
+  font-size: 0.85rem;
+  color: #e5ebf8;
+}
+
+.errorNotice {
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.65rem;
+  background: rgba(230, 80, 80, 0.14);
+  border: 1px solid rgba(230, 80, 80, 0.3);
+  color: #fca5a5;
+  font-size: 0.82rem;
+}
+
+.sourceNotice { margin: .75rem 0; color: #b8c8e2; font-size: .875rem; line-height: 1.5; }
+.agentBox button:focus-visible { outline: 2px solid #90b5ff; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
+.agentCorrection { padding: 1rem 0; display: grid; gap: .8rem; }
+.agentCorrection label { display: grid; gap: .5rem; font-size: .875rem; }
+.agentCorrection textarea, .agentCorrection select { width: 100%; min-width: 0; padding: .75rem; border: 1px solid #42516a; border-radius: .7rem; background: #151d2a; color: #eef3fc; font: inherit; }
+.agentCorrection textarea { resize: vertical; }
+.agentCorrection small { color: #aab8cd; line-height: 1.5; }
+.analysisMode { grid-template-columns: 1fr; }

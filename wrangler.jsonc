@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vibeforge",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "main": "vinext/server/fetch-handler",
+  "assets": {
+    "directory": "dist/client",
+    "not_found_handling": "none",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/pilot",
+      "/pilot/*",
+      "/business-pulse",
+      "/business-pulse/*",
+      "/api/*"
+    ]
+  },
+  "keep_vars": true,
+  "cache": {
+    "enabled": true
+  }
+}

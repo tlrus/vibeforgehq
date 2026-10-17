@@ -1,0 +1,11 @@
+import { ArrowLeft, Bell, Box, LayoutDashboard, MessageCircle, Package, Search, Settings, Sparkles } from "lucide-react";
+import type { AnchorHTMLAttributes, ReactNode } from "react";
+
+function Link(props:AnchorHTMLAttributes<HTMLAnchorElement> & {href:string}){return <a {...props}/>}
+
+export function Logo({light=false}:{light?:boolean}){return <Link href="/admin" className={`logo ${light?"logo-light":""}`}><span className="logo-mark">V</span><span>VibeForge</span></Link>}
+export function Status({children}:{children:ReactNode}){const key=String(children);return <span className={`status ${key.includes("Новая")?"status-new":key.includes("работе")?"status-work":key.includes("отправлен")?"status-sent":"status-done"}`}><i/>{children}</span>}
+export function WindowVisual({color="#b8d1d8",compact=false}:{color?:string;compact?:boolean}){return <div className={`window-visual ${compact?"compact":""}`} style={{background:`linear-gradient(145deg, ${color}, #eef4f5)`}}><div className="window-frame"><span/><span/></div></div>}
+export function AdminShell({children,active="leads"}:{children:ReactNode;active?:"leads"|"products"}){return <div className="shell"><aside><Logo light/><nav><Link className={active==="leads"?"active":""} href="/admin"><LayoutDashboard/>Заявки <b>4</b></Link><Link className={active==="products"?"active":""} href="/admin/products"><Package/>Каталог</Link><Link href="/demo/whatsapp"><MessageCircle/>WhatsApp</Link></nav><div className="aside-bottom"><Link href="/admin/settings"><Settings/>Настройки</Link><div className="manager"><span>АМ</span><div><strong>Алия</strong><small>Менеджер</small></div></div></div></aside><div className="workspace"><header><div className="search"><Search/><span>Поиск по заявкам…</span><kbd>⌘ K</kbd></div><button className="icon-button" aria-label="Уведомления"><Bell/><i/></button><span className="demo"><Sparkles/>Демо-режим</span></header><main>{children}</main></div></div>}
+export function PageTitle({title,subtitle,children,back}:{title:string;subtitle?:string;children?:ReactNode;back?:string}){return <div className="page-title">{back&&<Link className="back" href={back}><ArrowLeft/></Link>}<div><h1>{title}</h1>{subtitle&&<p>{subtitle}</p>}</div>{children&&<div className="title-actions">{children}</div>}</div>}
+export function EmptyIcon(){return <Box/>}

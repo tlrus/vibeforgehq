@@ -1,0 +1,4 @@
+import { defaultPricingRules,pricingRulesSchema,type PricingRules } from "./pricing-engine";
+import { getSupabaseServerClient } from "./supabase/server";
+export async function getPricingRules():Promise<PricingRules>{const client=getSupabaseServerClient();if(!client)return defaultPricingRules;const {data}=await client.from("pricing_settings").select("rules").eq("id","default").maybeSingle();const parsed=pricingRulesSchema.safeParse(data?.rules);return parsed.success?parsed.data:defaultPricingRules}
+export async function savePricingRules(rules:PricingRules){const valid=pricingRulesSchema.parse(rules);const client=getSupabaseServerClient();if(!client)return {demo:true};const {error}=await client.from("pricing_settings").upsert({id:"default",rules:valid},{onConflict:"id"});if(error)throw error;return {demo:false}}

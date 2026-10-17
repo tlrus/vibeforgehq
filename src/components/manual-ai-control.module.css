@@ -1,0 +1,1050 @@
+.aiControlView {
+  width: min(94rem, calc(100% - 2rem));
+  margin: 1.5rem auto 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.aiControlHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.4rem;
+  background: linear-gradient(145deg, rgba(34, 37, 42, 0.9), rgba(26, 28, 32, 0.9));
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 16px 40px rgba(0, 0, 0, 0.16);
+}
+
+.aiControlHeader > div:first-child > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #a3b8ff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.aiControlHeader > div:first-child > span svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.aiControlHeader h1 {
+  margin: 0.4rem 0 0.3rem;
+  font-size: clamp(1.8rem, 2.6vw, 2.5rem);
+  font-weight: 720;
+  letter-spacing: -0.03em;
+  color: #f5f5f7;
+}
+
+.aiControlHeader p {
+  margin: 0;
+  color: #adb2bd;
+  font-size: 0.88rem;
+  max-width: 50rem;
+  line-height: 1.5;
+}
+
+.aiControlStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.2rem;
+  border: 1px solid rgba(82, 214, 168, 0.2);
+  border-radius: 0.9rem;
+  background: rgba(44, 151, 111, 0.08);
+  flex-shrink: 0;
+}
+
+.aiControlStatus > i {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: #42d7a3;
+  box-shadow: 0 0 0 0.3rem rgba(66, 215, 163, 0.12);
+}
+
+.aiControlStatus > span {
+  display: flex;
+  flex-direction: column;
+}
+
+.aiControlStatus strong {
+  font-size: 0.82rem;
+  color: #f1f3f7;
+}
+
+.aiControlStatus small {
+  margin-top: 0.15rem;
+  color: #9299a5;
+  font-size: 0.68rem;
+}
+
+/* Section Shell */
+.aiAudienceSection, .aiPlaybookSection, .aiClientsSection {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.4rem;
+  background: rgba(30, 33, 37, 0.92);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 18px 45px rgba(0, 0, 0, 0.16);
+  overflow: hidden;
+}
+
+.aiAudienceSection > header, .aiPlaybookSection > header, .aiClientsSection > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 1.5rem;
+}
+
+.aiAudienceSection > header > div > span, .aiPlaybookSection > header > div > span, .aiClientsSection > header > div > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #a9baff;
+  font-size: 0.68rem;
+  font-weight: 720;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.aiAudienceSection h2, .aiPlaybookSection h2, .aiClientsSection h2 {
+  margin: 0.3rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #f5f5f7;
+}
+
+.aiAudienceSection header p, .aiPlaybookSection header p, .aiClientsSection header p {
+  margin: 0.25rem 0 0;
+  color: #a4abb7;
+  font-size: 0.78rem;
+}
+
+.aiAudienceSection > header > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid rgba(130, 158, 255, 0.2);
+  border-radius: 0.7rem;
+  color: #c7d2ff;
+  background: rgba(83, 114, 210, 0.1);
+  font-size: 0.72rem;
+  font-weight: 650;
+  flex-shrink: 0;
+}
+
+.aiAudienceSection > header > span svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+/* Sector Picker */
+.aiProductPicker {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 1rem 1.25rem;
+  gap: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.aiProductPicker button {
+  --ai-accent: #6f9dff;
+  display: grid;
+  grid-template-columns: 2.8rem minmax(0, 1fr) auto 0.9rem;
+  min-height: 6.2rem;
+  align-items: center;
+  padding: 0.9rem;
+  gap: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 1rem;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.02);
+  text-align: left;
+  transition: all 180ms ease;
+  cursor: pointer;
+}
+
+.aiProductPicker button:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.aiProductPicker button > span {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  border-radius: 0.85rem;
+  color: var(--ai-accent);
+  background: color-mix(in srgb, var(--ai-accent) 15%, transparent);
+}
+
+.aiProductPicker button > span svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.aiProductPicker button > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.aiProductPicker button small {
+  color: #9da3af;
+  font-size: 0.68rem;
+}
+
+.aiProductPicker button strong {
+  margin-top: 0.2rem;
+  font-size: 0.95rem;
+  font-weight: 680;
+  color: #f5f5f7;
+}
+
+.aiProductPicker button em {
+  margin-top: 0.35rem;
+  color: #9298a4;
+  font-size: 0.65rem;
+  font-style: normal;
+}
+
+.aiProductPicker button > b {
+  min-width: 2rem;
+  color: var(--ai-accent);
+  font-size: 1.45rem;
+  font-weight: 720;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.aiProductPicker button > svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: #797f8c;
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.aiProductPicker .aiProductActive {
+  border-color: color-mix(in srgb, var(--ai-accent) 55%, transparent);
+  background: color-mix(in srgb, var(--ai-accent) 10%, rgba(255, 255, 255, 0.02));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ai-accent) 16%, transparent) inset, 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.aiProductPicker .aiProductActive > svg {
+  color: var(--ai-accent);
+  transform: translateX(0.15rem);
+}
+
+/* Workspace */
+.aiProductWorkspace {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.aiProductSummary {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.55fr);
+  align-items: stretch;
+  gap: 0.85rem;
+}
+
+.aiProductSummary > div:first-child {
+  min-height: 11rem;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid color-mix(in srgb, var(--ai-accent) 22%, rgba(255, 255, 255, 0.06));
+  border-radius: 1.1rem;
+  background: radial-gradient(34rem 16rem at 0 0, color-mix(in srgb, var(--ai-accent) 15%, transparent), transparent 75%), rgba(255, 255, 255, 0.025);
+}
+
+.aiProductSummary > div:first-child > span {
+  color: var(--ai-accent);
+  font-size: 0.68rem;
+  font-weight: 720;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.aiProductSummary h2 {
+  margin: 0.75rem 0 0;
+  font-size: clamp(1.5rem, 2.3vw, 2.1rem);
+  font-weight: 710;
+  letter-spacing: -0.035em;
+  color: #f7f9fc;
+}
+
+.aiProductSummary p {
+  margin: 0.65rem 0 0;
+  color: #c7ccd5;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.aiProductDecision {
+  display: grid;
+  grid-template-columns: 2.8rem minmax(0, 1fr);
+  min-height: 11rem;
+  align-content: center;
+  padding: 1.3rem;
+  gap: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 1.1rem;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.aiProductDecision > svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  padding: 0.75rem;
+  box-sizing: content-box;
+  border-radius: 0.85rem;
+  color: var(--ai-accent);
+  background: color-mix(in srgb, var(--ai-accent) 14%, transparent);
+}
+
+.aiProductDecision > span {
+  display: flex;
+  flex-direction: column;
+}
+
+.aiProductDecision small {
+  color: #989fa9;
+  font-size: 0.68rem;
+}
+
+.aiProductDecision strong {
+  margin-top: 0.35rem;
+  color: #f2f3f7;
+  font-size: 0.84rem;
+  font-weight: 620;
+  line-height: 1.48;
+}
+
+/* Metrics */
+.aiProductMetrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 1.1rem;
+  background: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.aiProductMetrics > div {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  min-height: 6.5rem;
+  align-content: center;
+  padding: 1rem 1.2rem;
+  gap: 0.2rem 0.8rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.aiProductMetrics > div:last-child {
+  border-right: 0;
+}
+
+.aiProductMetrics > div > svg {
+  grid-row: 1 / 4;
+  width: 1.1rem;
+  height: 1.1rem;
+  padding: 0.6rem;
+  box-sizing: content-box;
+  border-radius: 0.75rem;
+  color: var(--ai-accent);
+  background: color-mix(in srgb, var(--ai-accent) 12%, transparent);
+}
+
+.aiProductMetrics span {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 0.25rem 0.5rem;
+}
+
+.aiProductMetrics small {
+  grid-column: 1 / -1;
+  color: #9ea4af;
+  font-size: 0.68rem;
+}
+
+.aiProductMetrics strong {
+  color: #f5f5f7;
+  font-size: 1.6rem;
+  font-weight: 720;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.aiProductMetrics em {
+  color: #949aa5;
+  font-size: 0.65rem;
+  font-style: normal;
+}
+
+.aiProductMetrics .aiSignalAlert {
+  background: rgba(255, 166, 72, 0.06);
+}
+
+.aiProductMetrics .aiSignalAlert > svg,
+.aiProductMetrics .aiSignalAlert strong {
+  color: #ffb861;
+}
+
+.aiProductMetrics .aiSignalAlert > svg {
+  background: rgba(255, 166, 72, 0.14);
+}
+
+/* Portrait Grid */
+.aiPortraitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.aiPortraitCard, .aiConversationCard {
+  min-height: 20rem;
+  padding: 1.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 1.1rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.aiPortraitCard > header, .aiConversationCard > header {
+  display: grid;
+  grid-template-columns: 2.8rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.aiPortraitCard > header > span, .aiConversationCard > header > span {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  border-radius: 0.85rem;
+  color: var(--ai-accent);
+  background: color-mix(in srgb, var(--ai-accent) 14%, transparent);
+}
+
+.aiPortraitCard > header svg, .aiConversationCard > header svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.aiPortraitCard header small, .aiConversationCard header small {
+  color: #9ba1ad;
+  font-size: 0.68rem;
+}
+
+.aiPortraitCard h3, .aiConversationCard h3 {
+  margin: 0.2rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 680;
+  color: #f5f5f7;
+}
+
+.aiTemperatureMix {
+  margin-top: 1rem;
+  padding: 0.85rem;
+  border-radius: 0.85rem;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.aiTemperatureMix > div {
+  display: flex;
+  height: 0.48rem;
+  overflow: hidden;
+  gap: 0.15rem;
+  border-radius: 0.3rem;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.aiTemperatureMix > div span {
+  min-width: 0.25rem;
+  border-radius: 0.25rem;
+  transition: width 300ms ease;
+}
+
+.aiTemperatureMix > div span:nth-child(1) { background: #6b9de9; }
+.aiTemperatureMix > div span:nth-child(2) { background: #f4bd5d; }
+.aiTemperatureMix > div span:nth-child(3) { background: #ff766e; }
+
+.aiTemperatureMix p {
+  display: flex;
+  margin: 0.6rem 0 0;
+  gap: 0.6rem;
+  color: #9ba1ad;
+  font-size: 0.68rem;
+}
+
+.aiTemperatureMix b {
+  color: #e9ecf2;
+  font-weight: 700;
+}
+
+.aiPortraitCard dl {
+  margin: 0.85rem 0 0;
+}
+
+.aiPortraitCard dl > div {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  min-height: 3.8rem;
+  align-items: center;
+  padding: 0.65rem 0;
+  gap: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.aiPortraitCard dt {
+  color: #989fa9;
+  font-size: 0.7rem;
+}
+
+.aiPortraitCard dd {
+  margin: 0;
+  color: #e4e6eb;
+  font-size: 0.78rem;
+  font-weight: 580;
+  line-height: 1.45;
+}
+
+.aiConversationTone {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr);
+  min-height: 4.4rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  gap: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--ai-accent) 20%, transparent);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--ai-accent) 7%, transparent);
+}
+
+.aiConversationTone > svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--ai-accent);
+}
+
+.aiConversationTone span {
+  display: flex;
+  flex-direction: column;
+}
+
+.aiConversationTone small {
+  color: color-mix(in srgb, var(--ai-accent) 80%, white);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  font-weight: 650;
+}
+
+.aiConversationTone strong {
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  font-weight: 610;
+  color: #f1f3f7;
+  line-height: 1.45;
+}
+
+.aiOpeningLine {
+  margin-top: 0.85rem;
+}
+
+.aiOpeningLine > small {
+  display: block;
+  margin: 0 0 0.35rem 0.2rem;
+  color: #9fa5b0;
+  font-size: 0.68rem;
+  font-weight: 680;
+  text-transform: uppercase;
+}
+
+.aiConversationCard blockquote {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-left: 0.2rem solid var(--ai-accent);
+  border-radius: 0 0.85rem 0.85rem 0;
+  color: #f3f5fa;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.85rem;
+  font-weight: 580;
+  line-height: 1.5;
+}
+
+.aiDoDont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 0.85rem;
+  gap: 0.7rem;
+}
+
+.aiDoDont > span {
+  display: grid;
+  grid-template-columns: 1.8rem minmax(0, 1fr);
+  min-height: 5.5rem;
+  align-items: start;
+  padding: 0.75rem;
+  gap: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  border-radius: 0.85rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.aiDoDont svg {
+  width: 1rem;
+  height: 1rem;
+  color: #69d7ae;
+}
+
+.aiDoDont > span:last-child svg {
+  color: #ffae82;
+}
+
+.aiDoDont p {
+  margin: 0;
+  color: #b3b8c3;
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+
+.aiDoDont b {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #eff1f5;
+  font-size: 0.72rem;
+}
+
+/* Playbook Section */
+.aiPlaybookSection > header > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 0.95rem;
+  border: 1px solid rgba(105, 215, 174, 0.2);
+  border-radius: 0.85rem;
+  background: rgba(44, 151, 111, 0.08);
+}
+
+.aiPlaybookSection > header > div:last-child svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: #69d7ae;
+}
+
+.aiPlaybookSection > header > div:last-child span {
+  display: flex;
+  flex-direction: column;
+}
+
+.aiPlaybookSection > header > div:last-child strong {
+  font-size: 0.74rem;
+  color: #f1f3f7;
+}
+
+.aiPlaybookSection > header > div:last-child small {
+  margin-top: 0.15rem;
+  color: #989fa9;
+  font-size: 0.66rem;
+}
+
+.aiReplyTabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 1rem 1.25rem;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.aiReplyTabs button {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  min-height: 4.6rem;
+  align-items: center;
+  padding: 0.75rem;
+  gap: 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 0.9rem;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.02);
+  text-align: left;
+  transition: all 180ms ease;
+  cursor: pointer;
+}
+
+.aiReplyTabs button:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.aiReplyTabs button > svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  padding: 0.55rem;
+  box-sizing: content-box;
+  border-radius: 0.65rem;
+  color: #b4c3ff;
+  background: rgba(92, 126, 226, 0.14);
+}
+
+.aiReplyTabs button span {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.aiReplyTabs button small {
+  color: #979ea9;
+  font-size: 0.64rem;
+}
+
+.aiReplyTabs button strong {
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  font-weight: 660;
+  color: #f1f3f6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.aiReplyTabs .aiReplyTabActive {
+  border-color: color-mix(in srgb, var(--ai-accent) 58%, transparent);
+  background: color-mix(in srgb, var(--ai-accent) 11%, rgba(255, 255, 255, 0.02));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ai-accent) 14%, transparent) inset;
+}
+
+.aiReplyTabs .aiReplyTabActive > svg {
+  background: var(--ai-accent);
+  color: white;
+}
+
+.aiFlowchart {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) 1.8rem minmax(0, 0.95fr) 1.8rem minmax(0, 1.35fr);
+  align-items: stretch;
+  padding: 1.25rem;
+  gap: 0.5rem;
+}
+
+.aiFlowchart article {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr);
+  min-height: 9.5rem;
+  align-content: center;
+  padding: 1rem 1.1rem;
+  gap: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.aiFlowchart article > span {
+  display: grid;
+  width: 2.4rem;
+  height: 2.4rem;
+  place-items: center;
+  align-self: start;
+  border-radius: 0.75rem;
+  color: #bdcaff;
+  background: rgba(91, 126, 229, 0.14);
+}
+
+.aiFlowchart article > span svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.aiFlowchart article > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.aiFlowchart article small {
+  color: #9ba1ac;
+  font-size: 0.65rem;
+  font-weight: 650;
+  text-transform: uppercase;
+}
+
+.aiFlowchart article strong {
+  margin-top: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 590;
+  line-height: 1.55;
+  color: #eef1f6;
+}
+
+.aiFlowchart .aiFlowCustomer {
+  border-color: rgba(255, 181, 92, 0.2);
+  background: rgba(255, 165, 62, 0.05);
+}
+
+.aiFlowchart .aiFlowCustomer > span {
+  color: #ffbd6c;
+  background: rgba(255, 167, 68, 0.14);
+}
+
+.aiFlowchart .aiFlowInsight {
+  border-color: color-mix(in srgb, var(--ai-accent) 22%, transparent);
+  background: color-mix(in srgb, var(--ai-accent) 6%, transparent);
+}
+
+.aiFlowchart .aiFlowInsight > span {
+  color: var(--ai-accent);
+  background: color-mix(in srgb, var(--ai-accent) 14%, transparent);
+}
+
+.aiFlowchart .aiFlowAnswer {
+  border-color: rgba(83, 213, 164, 0.2);
+  background: rgba(44, 196, 141, 0.05);
+}
+
+.aiFlowchart .aiFlowAnswer > span {
+  color: #78dbb5;
+  background: rgba(44, 196, 141, 0.14);
+}
+
+.aiFlowArrow {
+  align-self: center;
+  width: 1.2rem !important;
+  height: 1.2rem !important;
+  color: #68717d;
+}
+
+.aiFlowOutcome {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 1.25rem 1.25rem;
+  gap: 0.85rem;
+}
+
+.aiFlowOutcome > div {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  min-height: 5.5rem;
+  align-items: center;
+  padding: 1rem 1.1rem;
+  gap: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 0.95rem;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.aiFlowOutcome > div > svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: #74d9b3;
+}
+
+.aiFlowOutcome span {
+  display: flex;
+  flex-direction: column;
+}
+
+.aiFlowOutcome small {
+  color: #9ba1ac;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  font-weight: 650;
+}
+
+.aiFlowOutcome strong {
+  margin-top: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 610;
+  line-height: 1.45;
+  color: #e9ecf2;
+}
+
+/* Inspection Table / Active Clients */
+.aiClientsList {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1.25rem 1.25rem;
+  gap: 0.5rem;
+}
+
+.aiClientRow {
+  display: grid;
+  grid-template-columns: 2rem minmax(12rem, 1.4fr) minmax(10rem, 1fr) minmax(12rem, 1.4fr) auto auto;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.85rem;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 150ms ease;
+}
+
+.aiClientRow:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.aiClientRowIndex {
+  display: grid;
+  width: 1.8rem;
+  height: 1.8rem;
+  place-items: center;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: #9ea5b2;
+  font-size: 0.75rem;
+  font-weight: 650;
+}
+
+.aiClientMain strong {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 650;
+  color: #f5f5f7;
+}
+
+.aiClientMain small {
+  color: #9299a5;
+  font-size: 0.7rem;
+}
+
+.aiClientStage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.aiClientStage small {
+  color: #9299a5;
+  font-size: 0.68rem;
+}
+
+.aiClientStage span {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.2rem 0.55rem;
+  border-radius: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 650;
+}
+
+.aiClientNext {
+  display: flex;
+  flex-direction: column;
+}
+
+.aiClientNext small {
+  color: #9299a5;
+  font-size: 0.68rem;
+}
+
+.aiClientNext strong {
+  color: #e5e8ef;
+  font-size: 0.76rem;
+  font-weight: 580;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.aiClientTemp {
+  padding: 0.3rem 0.65rem;
+  border-radius: 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 650;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tempHot {
+  color: #ff9187;
+  background: rgba(255, 118, 110, 0.12);
+  border: 1px solid rgba(255, 118, 110, 0.25);
+}
+
+.tempWarm {
+  color: #f7ca78;
+  background: rgba(244, 189, 93, 0.12);
+  border: 1px solid rgba(244, 189, 93, 0.25);
+}
+
+.tempCold {
+  color: #8bb3f8;
+  background: rgba(107, 157, 233, 0.12);
+  border: 1px solid rgba(107, 157, 233, 0.25);
+}
+
+.aiClientActionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: #dbe2ef;
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.aiClientActionBtn:hover {
+  border-color: #6f9dff;
+  color: white;
+  background: rgba(111, 157, 255, 0.15);
+}
+
+.aiClientsEmpty {
+  padding: 2rem;
+  text-align: center;
+  color: #9299a5;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+  .aiControlHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .aiProductPicker {
+    grid-template-columns: 1fr;
+  }
+  .aiProductSummary {
+    grid-template-columns: 1fr;
+  }
+  .aiProductMetrics {
+    grid-template-columns: 1fr 1fr;
+  }
+  .aiPortraitGrid {
+    grid-template-columns: 1fr;
+  }
+  .aiReplyTabs {
+    grid-template-columns: 1fr 1fr;
+  }
+  .aiFlowchart {
+    grid-template-columns: 1fr;
+  }
+  .aiFlowArrow {
+    display: none;
+  }
+  .aiFlowOutcome {
+    grid-template-columns: 1fr;
+  }
+  .aiClientRow {
+    grid-template-columns: 1fr;
+  }
+}

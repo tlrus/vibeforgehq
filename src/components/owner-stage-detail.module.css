@@ -1,0 +1,71 @@
+.page { max-width: 92rem; min-height: 100vh; margin: 0 auto; padding: 6.7rem 2rem 4rem; color: #f7f9ff; font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif; }
+.header { display: grid; grid-template-columns: 8rem minmax(0, 1fr) auto; align-items: end; padding-bottom: 1.6rem; gap: 1.2rem; border-bottom: 1px solid rgba(255,255,255,.09); }
+.header > button { display: flex; min-height: 2.7rem; align-items: center; justify-content: center; gap: .45rem; border: 1px solid rgba(255,255,255,.1); border-radius: .8rem; color: rgba(255,255,255,.78); background: rgba(255,255,255,.045); font: inherit; font-size: .76rem; cursor: pointer; transition: background 150ms ease, transform 90ms ease-out; }
+.header > button:hover { background: rgba(255,255,255,.08); }
+.header > button:active { transform: scale(.97); }
+.header > button svg { width: .9rem; }
+.header > div > span { color: #9fb3ff; font-size: .68rem; font-weight: 720; letter-spacing: .08em; }
+.header h1 { margin: .35rem 0 0; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 740; line-height: .95; letter-spacing: -.055em; }
+.header p { margin: .75rem 0 0; color: rgba(255,255,255,.62); font-size: .86rem; }
+.header > aside { display: flex; min-width: 12rem; align-items: center; padding: .9rem 1rem; gap: .75rem; border: 1px solid rgba(126,159,255,.18); border-radius: 1rem; background: rgba(91,126,229,.08); box-shadow: 0 1px 0 rgba(255,255,255,.06) inset; }
+.header > aside > svg { width: 1.15rem; color: #91aaff; }
+.header > aside span { display: flex; flex-direction: column; }
+.header > aside small { color: rgba(255,255,255,.56); font-size: .62rem; }
+.header > aside strong { margin-top: .15rem; font-size: 1.45rem; font-variant-numeric: tabular-nums; }
+.metricGrid { display: grid; margin-top: 1.25rem; gap: .85rem; }
+.metric { overflow: hidden; border: 1px solid rgba(255,255,255,.09); border-radius: 1.2rem; background: rgba(31,34,39,.91); box-shadow: 0 1px 0 rgba(255,255,255,.055) inset, 0 18px 46px rgba(0,0,0,.16); }
+.metric[data-tone="warning"] { border-color: rgba(255,157,100,.25); }
+.metric[data-tone="success"] { border-color: rgba(83,211,164,.18); }
+.metric summary { position: relative; display: grid; grid-template-columns: 3rem minmax(0,1fr) 2.5rem; min-height: 7.4rem; align-items: center; padding: 1rem 1.15rem 1.2rem; gap: .85rem; list-style: none; cursor: pointer; user-select: none; }
+.metric summary::-webkit-details-marker { display: none; }
+.metric summary > i { display: grid; width: 3rem; height: 3rem; place-items: center; border-radius: .95rem; color: #9eb3ff; background: rgba(91,126,229,.13); }
+.metric[data-tone="warning"] summary > i { color: #ffab82; background: rgba(255,133,87,.11); }
+.metric[data-tone="success"] summary > i { color: #69d7af; background: rgba(64,185,156,.11); }
+.metric summary > i svg { width: 1.2rem; }
+.metric summary > span { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: .18rem .6rem; }
+.metric summary small { grid-column: 1 / -1; color: rgba(255,255,255,.63); font-size: .78rem; }
+.metric summary strong { font-size: clamp(1.8rem,3vw,2.6rem); font-weight: 730; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.metric summary em { color: rgba(255,255,255,.5); font-size: .72rem; font-style: normal; }
+.metric summary > b { display: grid; width: 2.3rem; height: 2.3rem; place-items: center; border-radius: 50%; color: rgba(255,255,255,.58); background: rgba(255,255,255,.05); transition: transform 180ms ease; }
+.metric[open] summary > b { transform: rotate(90deg); }
+.metric summary > b svg { width: .85rem; }
+.metric summary > div { position: absolute; right: 1.15rem; bottom: .8rem; left: 5rem; height: .22rem; overflow: hidden; border-radius: 99px; background: rgba(255,255,255,.07); }
+.metric summary > div span { display: block; height: 100%; border-radius: inherit; background: #7da0ff; }
+.metric[data-tone="warning"] summary > div span { background: #ffad75; }
+.metric[data-tone="success"] summary > div span { background: #59d3a4; }
+.metric > section { padding: 0 1.15rem 1rem 5rem; border-top: 1px solid rgba(255,255,255,.07); }
+.metric > section > header { display: flex; min-height: 3.4rem; align-items: center; justify-content: space-between; gap: 1rem; }
+.metric > section > header span { display: flex; align-items: center; gap: .4rem; color: rgba(255,255,255,.72); font-size: .72rem; }
+.metric > section > header span svg { width: .86rem; color: #8da8ff; }
+.metric > section > header small { color: rgba(255,255,255,.42); font-size: .62rem; }
+.metric > section > button { display: grid; grid-template-columns: minmax(0,1fr) auto 1.2rem; width: 100%; min-height: 4rem; align-items: center; padding: .55rem .75rem; gap: .85rem; border: 0; border-top: 1px solid rgba(255,255,255,.065); color: inherit; background: transparent; text-align: left; cursor: pointer; transition: background 150ms ease, transform 90ms ease-out; }
+.metric > section > button:hover { background: rgba(255,255,255,.045); }
+.metric > section > button:active { transform: scale(.995); }
+.metric > section > button > span { display: flex; min-width: 0; flex-direction: column; }
+.metric > section > button strong { overflow: hidden; font-size: .82rem; text-overflow: ellipsis; white-space: nowrap; }
+.metric > section > button small { margin-top: .2rem; overflow: hidden; color: rgba(255,255,255,.5); font-size: .64rem; text-overflow: ellipsis; white-space: nowrap; }
+.metric > section > button em { color: #ffb083; font-size: .66rem; font-style: normal; font-weight: 650; white-space: nowrap; }
+.metric > section > button > svg { width: .82rem; color: rgba(255,255,255,.4); }
+.empty { display: flex; min-height: 4rem; align-items: center; gap: .5rem; color: #68d6ad; font-size: .72rem; }
+.empty svg { width: .9rem; }
+.footer { display: flex; min-height: 4.5rem; align-items: center; justify-content: center; margin-top: 1rem; gap: .55rem; color: rgba(255,255,255,.48); font-size: .7rem; }
+.footer svg { width: .9rem; color: #91aaff; }
+.dealSheet { position: fixed; top: 5.3rem; right: 1.25rem; z-index: 40; width: min(27rem, calc(100vw - 2rem)); padding: 1rem; border: 1px solid rgba(136,160,234,.22); border-radius: 1.2rem; background: rgba(37,41,48,.96); backdrop-filter: blur(26px) saturate(160%); box-shadow: 0 28px 76px rgba(0,0,0,.48), 0 1px 0 rgba(255,255,255,.08) inset; animation: dealSheetIn 220ms cubic-bezier(.22,1,.36,1); }
+.dealSheet > header { display: flex; align-items: flex-start; justify-content: space-between; padding-bottom: .85rem; border-bottom: 1px solid rgba(255,255,255,.08); }
+.dealSheet > header span { display: flex; min-width: 0; flex-direction: column; }
+.dealSheet > header small { color: #9fb3ff; font-size: .62rem; }
+.dealSheet > header strong { margin-top: .24rem; overflow: hidden; font-size: 1.35rem; text-overflow: ellipsis; white-space: nowrap; }
+.dealSheet > header button { display: grid; width: 2.2rem; height: 2.2rem; place-items: center; border: 0; border-radius: .7rem; color: rgba(255,255,255,.62); background: rgba(255,255,255,.055); cursor: pointer; }
+.dealSheet > header button svg { width: .9rem; }
+.dealSheet dl { display: grid; grid-template-columns: 1fr 1fr; margin: .85rem 0; gap: .55rem; }
+.dealSheet dl div { display: flex; min-height: 4.2rem; flex-direction: column; justify-content: center; padding: .7rem; border: 1px solid rgba(255,255,255,.075); border-radius: .78rem; background: rgba(255,255,255,.03); }
+.dealSheet dt { color: rgba(255,255,255,.48); font-size: .6rem; }
+.dealSheet dd { margin: .28rem 0 0; font-size: .78rem; font-weight: 650; line-height: 1.35; }
+.dealSheet .dealSheetWide { grid-column: 1 / -1; }
+.dealSheetStatus { padding: .75rem; border: 1px solid rgba(83,211,164,.17); border-radius: .75rem; color: #65d6ac; background: rgba(53,180,139,.07); font-size: .7rem; font-weight: 650; }
+.dealSheetStatus[data-overdue="true"] { border-color: rgba(255,157,100,.2); color: #ffad82; background: rgba(255,131,82,.07); }
+.dealSheetAction { display: flex; width: 100%; min-height: 3rem; align-items: center; justify-content: center; margin-top: .7rem; gap: .5rem; border: 1px solid rgba(123,153,242,.2); border-radius: .8rem; color: #f6f8ff; background: rgba(91,126,229,.14); font: inherit; font-size: .72rem; font-weight: 650; cursor: pointer; }
+.dealSheetAction svg { width: .85rem; }
+@keyframes dealSheetIn { from { opacity: 0; transform: translateX(1rem) scale(.98); } to { opacity: 1; transform: translateX(0) scale(1); } }
+@media (max-width: 760px) { .page { padding: 5.8rem 1rem 3rem; } .header { grid-template-columns: 1fr; align-items: start; } .header > button { width: 7rem; } .header > aside { width: 100%; } .metric summary { grid-template-columns: 2.6rem minmax(0,1fr) 2rem; min-height: 6.7rem; padding-inline: .85rem; } .metric summary > i { width: 2.6rem; height: 2.6rem; } .metric summary > div { left: 4.3rem; } .metric > section { padding-left: .85rem; padding-right: .85rem; } .metric > section > header { align-items: flex-start; flex-direction: column; justify-content: center; gap: .25rem; } }
+@media (prefers-reduced-motion: reduce) { .metric summary > b, .header > button, .metric > section > button, .dealSheet { transition: none; animation: none; } }

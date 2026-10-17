@@ -1,0 +1,3 @@
+export type WhatsAppMessage={id:string;from:string;timestamp:string;type:string;text?:{body:string};interactive?:{type:string;button_reply?:{id:string;title:string};list_reply?:{id:string;title:string}};button?:{text:string;payload:string};image?:{id:string;mime_type?:string;caption?:string};audio?:{id:string;mime_type?:string;voice?:boolean};document?:{id:string;mime_type?:string;filename?:string;caption?:string}};
+export type WhatsAppStatus={id:string;status:string;timestamp:string;recipient_id:string;errors?:unknown[]};
+export type WhatsAppWebhook={entry?:{changes?:{value?:{contacts?:{profile?:{name?:string};wa_id?:string}[];messages?:WhatsAppMessage[];statuses?:WhatsAppStatus[];metadata?:{phone_number_id?:string}}}[]}[]};

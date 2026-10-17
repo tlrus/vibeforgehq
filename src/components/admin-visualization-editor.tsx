@@ -1,0 +1,6 @@
+"use client";
+import { useState } from "react";
+import { CheckCircle2, Send } from "lucide-react";
+import { VisualizationEditor, type VisualTransform } from "./visualization-editor";
+import type { AdminVisualizationData } from "@/lib/admin-visualization";
+export function AdminVisualizationEditor({leadId,data}:{leadId:string;data:AdminVisualizationData}){const [sent,setSent]=useState(false);async function save(blob:Blob,transform:VisualTransform){const form=new FormData();form.append("file",blob,"visualization.png");form.append("transform",JSON.stringify(transform));form.append("send","true");const response=await fetch(`/api/admin/leads/${encodeURIComponent(leadId)}/visualization`,{method:"POST",body:form});if(!response.ok)throw new Error("save");setSent(true)}return <div className="admin-visual-workspace"><div className="admin-visual-head"><div><span>Фотография клиента</span><h2>{data.customerName} · {data.productName}</h2></div>{sent&&<p><CheckCircle2/>Сохранено и отправлено в WhatsApp</p>}</div><VisualizationEditor photoUrl={data.photoUrl} windowUrl={data.windowUrl} onSave={save} saveLabel="Сохранить и отправить"/><div className="admin-visual-tip"><Send/>После сохранения новая версия автоматически отправляется клиенту в WhatsApp.</div></div>}

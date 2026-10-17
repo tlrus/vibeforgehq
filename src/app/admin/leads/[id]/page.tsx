@@ -1,0 +1,4 @@
+import { AdminShell,PageTitle } from "@/components/ui";
+import { LeadWorkspace } from "@/components/lead-workspace";
+import { getAdminLeadDetail } from "@/lib/admin-data";
+export default async function LeadPage({params}:{params:Promise<{id:string}>}){const {id}=await params;const loaded=await getAdminLeadDetail(id);const detail=id==="demo-nurlan"?{...loaded,lead:{...loaded.lead,name:"Нурлан",phone:"+7 700 123 45 67",city:"Алматы",address:"Адрес уточняется"},configuration:{...loaded.configuration,object_type:"Квартира",window_type:"Двухстворчатое",quantity:2,width_mm:1400,height_mm:1500,profile_material:"ПВХ усиленный",sash_count:2,opening_sashes:1,opening_type:"Поворотно-откидное",profile_color:"Белый",glass_type:"Энергосберегающий",mosquito_net:true,dismantling:true,installation:true}}:loaded;return <AdminShell><PageTitle back="/admin" title={detail.lead.name} subtitle={`Заявка ${id} · ${detail.lead.phone}`}/><LeadWorkspace detail={detail}/></AdminShell>}
