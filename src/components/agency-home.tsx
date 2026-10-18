@@ -26,7 +26,7 @@ export function AgencyHome() {
     </header>
     <main id="main">
       <section className={s.hero}>
-        <div className={s.heroCopy}><p className={s.eyebrow}>AI & IT development studio</p><h1>Ваши идеи.<br /><span>Наша инженерия.</span></h1><p className={s.lead}>Внедряем ИИ и создаём цифровые продукты для бизнеса. От автоматизации процессов до робототехники.</p><div className={s.actions}><a className={s.primary} href="#request">Оставить заявку <ArrowUpRight aria-hidden="true" /></a><a className={s.textLink} href="#projects">Смотреть проекты <ArrowRight aria-hidden="true" /></a></div></div>
+        <div className={s.heroCopy}><p className={s.eyebrow}>Сайт обновлён — проверка связи</p><h1>Ваши идеи.<br /><span>Наша инженерия.</span></h1><p className={s.lead}>Внедряем ИИ и создаём цифровые продукты для бизнеса. От автоматизации процессов до робототехники.</p><div className={s.actions}><a className={s.primary} href="#request">Оставить заявку <ArrowUpRight aria-hidden="true" /></a><a className={s.textLink} href="#projects">Смотреть проекты <ArrowRight aria-hidden="true" /></a></div></div>
         <figure className={s.heroArt}><Image src="/vibeforge-robotics-concept.png" alt="Концептуальная иллюстрация: точный роботизированный захват держит вычислительный модуль" width={1536} height={1024} priority unoptimized /><figcaption>Визуальная концепция направления робототехники</figcaption></figure>
       </section>
       <section id="services" className={s.section} aria-labelledby="services-title">
