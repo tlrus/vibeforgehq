@@ -6,7 +6,7 @@ describe("ContactRequest", () => {
   afterEach(cleanup);
   it("shows the owner's phone, direct WhatsApp and original QR contact", () => {
     render(<ContactRequest />);
-    expect(screen.getByRole("link", { name: "Написать в WhatsApp ↗" })).toHaveAttribute("href", "https://wa.me/77081102995");
+    fireEvent.click(screen.getByText("Показать QR-код WhatsApp"));
     expect(screen.getByRole("link", { name: "Открыть контакт Руслана в WhatsApp" })).toHaveAttribute("href", "https://wa.me/qr/BT35IQF7XT66E1");
     expect(screen.getByAltText("QR-код WhatsApp Руслана")).toHaveAttribute("src", "/whatsapp-ruslan.png");
     expect(screen.getByText(/До этого форма не отправляет/)).toBeInTheDocument();
